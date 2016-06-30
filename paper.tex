@@ -83,10 +83,9 @@ separated and reprocessed to fuel the next batch of MOX fuel for the PWR.
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
   \centering
   \includegraphics[width=0.48\textwidth]{flow}
-  \caption{Schematic representation of the fuel cycle. Quantities on the row
-  represents the cumulative amount in kg of material exchanged between two
-facilities in the calculation using ``pu-equivalent'' for fuel fabrication
-modeling with decay activated.}
+  \caption{Schematic representation of the fuel cycle. Quantities next to arrows
+  represent the cumulative amount (in kg) of material exchanged between two
+facilities in the calculation using the ``pu-equivalent'' model for fuel fabrication, with decay activated.}
   \label{fig:flow}
 \end{figure}
 
@@ -149,12 +148,15 @@ in the fresh PWR-MOX fuel.
   \centering
   \includegraphics[width=0.48\textwidth]{nodecay_pu_contribution.png}
   \caption{Evolution of the fraction of plutonium in the fresh PWR-MOX fuel
-  using the 3 predicted models, without considering decay.}
+    using 3 predicted models: fixed-mixing ratio, Pu-equivalent, and neural
+    network (NN). Here decay is not considered, so the fixed-mixing ratio and Pu-equivalent models have the same evolution.}
   \label{fig:nod}
 \end{figure}
 
 %% PPHW - need better figure legend text so that readers know what they are
 %% looking at
+%% MBM - I only see two traces on the plot. If this is correct, then add the
+%% following to the caption: `` The fixed stream and Pu-equivalent models have the same Pu fraction.''
 
 With decay turned on, see Fig. \ref{fig:d}, results for the ``fix mixing ratio''
 calculation see a small decrease of the fraction of plutonium in the fuel,
@@ -168,8 +170,12 @@ slowing stabilizing as the plutonium composition approaches an equilibrium.
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
   \centering
   \includegraphics[width=0.48\textwidth]{decay_pu_contribution.png}
-  \caption{Evolution of the fraction of plutonium in the fresh PWR-MOX fuel
-  using the 3 prediction models, with and without decay enable.}
+  \caption{Comparison of the effects of decay on
+    evolution of the fraction of plutonium in the fresh PWR-MOX fuel
+    using the 3 prediction models.  Solid line shows the Pu fraction over time
+    without tracking decay. Dashed line of the same color shows the the
+    same model, but with decay enabled. Decay has a particularly large effect
+  on the neural network (NN) model.}
   \label{fig:d}
 \end{figure}
 
@@ -214,8 +220,11 @@ calculation on a fuel cycle macroscopic (???) level.
   \centering
   \includegraphics[width=0.48\textwidth]{irradiation_pu_contribution.png}
   \caption{Evolution of the fraction of plutonium in the fresh PWR-MOX fuel
-  using the ``neural network'' prediction models, with decay enable using recipe
-based spent fuel composition and recalculated spent fuel composition.}
+    using four models utilizing a ``neural network''.  The solid red trace
+    uses a reciped based model to define spent fuel composition, while the
+    dashed red line also includes decay.  The orange traces compare the effects
+    of decay while using a depletion model to dynamically recalculate spent
+    fuel composition.}
   \label{fig:depletion}
 \end{figure}
 
@@ -248,9 +257,10 @@ the cycle. The amounts of the other nuclides are very close.
 \begin{figure}[ht] % replace 't' with 'b' to force it to be on the bottom
   \centering
   \includegraphics[width=0.48\textwidth]{MOX_pu_composition.png}
-  \caption{Evolution of the composition of the plutonium in the fresh PWR-MOX fuel
-  using the ``neural network'' prediction models, with decay enable using recipe
-based spent fuel composition and recalculated spent fuel composition.}
+  \caption{Effects of the model used to define spent fuel composition on the evolution of representative isotopes in fresh PWR-MOX fuel
+    using the ``neural network'' model, with decay activated. Dashed lines indicate the fraction of the
+    istope present using a recipe based model for spent fuel. Solid lines of the same color indicate isotope fraction using the depletion model.}
+
   \label{fig:depletioncompo}
 \end{figure}
 
